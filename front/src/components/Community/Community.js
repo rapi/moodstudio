@@ -9,18 +9,31 @@ export default function Community() {
       <Container>
         <div className="content">
           <div className="grid-section">
-            <img src={communityImg} alt="img grid" />
+            <img src='/roman.jpg' alt="img grid" />
             <div className="text">
-              <h1 className="title">Join the Rogue Shark community</h1>
+              <h1 className="title">Roma Pikunov</h1>
               <h2 className="desc">
-                Join our Discord community to be the first to know when we go
-                live…
+                Some information
               </h2>
               <div className="btns">
-                <button className="btn btn-join">Mint a Shark</button>
-                <button className="btn btn-follow">Connect Wallet</button>
+                <button className="btn btn-follow">Contact</button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="content">
+          <div className="grid-section">
+            <div className="text">
+              <h1 className="title">Julia Lavreka</h1>
+              <h2 className="desc">
+                Some information
+              </h2>
+              <div className="btns">
+                <button className="btn btn-follow">Contact</button>
+              </div>
+            </div>
+            <img src='/julia.jpg' alt="img grid"/>
+
           </div>
         </div>
       </Container>

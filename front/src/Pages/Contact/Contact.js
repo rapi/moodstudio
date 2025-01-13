@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import "./Projects.css";
+import "./Contact.css";
 import Footer from "../../components/Footer/Footer";
-import Overview from "../../components/Overview/Overview";
+import Community from "../../components/Community/Community";
 
-export default function Projects() {
+export default function Contact() {
   return (
     <>
       <main id="home">
         <Header minified/>
-          <Overview />
+          <Community />
 
         <Footer />
 

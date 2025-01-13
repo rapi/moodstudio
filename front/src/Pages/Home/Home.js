@@ -8,20 +8,17 @@ import Overview from "../../components/Overview/Overview";
 import Roadmap from "../../components/Roadmap/Roadmap";
 import Traits from "../../components/Traits/Traits";
 import "./Home.css";
-import HomeHeader from "./HomeHeader";
 
 export default function Home() {
   return (
     <>
       <main id="home">
 
-        <HomeHeader><Header /></HomeHeader>
+       <Header />
         <Origin />
-        <Overview />
         <Roadmap />
         <Traits />
         <Faq />
-        <Community />
         <Footer />
       </main>
     </>
