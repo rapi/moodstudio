@@ -1,7 +1,6 @@
 import React from "react";
 import "./Footer.css";
 import { Container } from "react-bootstrap";
-import { footer_logo } from "../../assets";
 
 export default function Footer() {
   return (

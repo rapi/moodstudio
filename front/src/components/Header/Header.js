@@ -58,10 +58,10 @@ export default function Header({minified}) {
                 </div>
                 <div className="btns">
                   <button className="btn btn-mint">About MOOD Studio</button>
-                  <Link to="/projects">
+                  <Link to="/landscape">
                     <button className="btn btn-mint">Landscape portfolio</button>
                   </Link>
-                  <Link to="/projects"><button className="btn btn-mint">Interior portfolio</button></Link>
+                  <Link to="/interior"><button className="btn btn-mint">Interior portfolio</button></Link>
                   <Link to="/projects"><button className="btn btn-mint">Price calculator</button></Link>
                   <Link to="/contact"><button className="btn btn-mint">Contacts</button></Link>
                 </div>

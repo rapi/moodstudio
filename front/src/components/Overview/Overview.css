@@ -31,9 +31,17 @@
   text-align: left;
   height: 0;
 }
+#overview .content .grid-section .reverse {
+  order:2;
+}
 
 #overview .content .grid-section img {
-  width: 100%;
+  width: 800px;
+}
+
+#overview .content .grid-section .slick-list {
+  width: 800px;
+  height: 600px;
 }
 
 #overview .content .grid-section .title {
@@ -43,7 +51,7 @@
 }
 
 #overview .content .grid-section .desc {
-  font-size: clamp(1rem, 5vw, 24px);
+  font-size: clamp(1rem, 5vw, 16px);
 }
 
 #overview .content .grid-section .subtitle {
@@ -70,6 +78,7 @@
     margin-bottom: 2rem;
     height: unset;
   }
+
   #overview .content .grid-section img {
     width: 60%;
   }

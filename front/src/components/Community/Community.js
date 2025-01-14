@@ -1,7 +1,6 @@
 import React from "react";
 import "./Community.css";
 import { Container } from "react-bootstrap";
-import { communityImg } from "../../assets";
 
 export default function Community() {
   return (
