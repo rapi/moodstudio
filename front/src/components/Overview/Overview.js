@@ -5,7 +5,7 @@ import {Carousel, Flex, Tag} from 'antd';
 export default function Overview({filter}) {
   const [projects,setProjects]=useState([])
   useEffect(() => {
-    fetch("/behance/projects")
+    fetch("/api/behance/projects")
         .then(e=>e.json())
         .then(e=>e.filter((e)=>e.covers.size_808?.url))
         .then(e=> {
@@ -14,7 +14,6 @@ export default function Overview({filter}) {
         })
   }, [filter]);
   const images = projects.map(project=>project.allModules.filter(module=>module.components).map(e=>e.components.map(e=>e.imageSizes.size_disp.url)).flat()??[])
-    console.log(images)
   return (
     <section id="overview">
       <Container fluid>
