@@ -1,0 +1,33 @@
+query ProjectPage($projectId: ProjectId!, $projectPassword: String) {
+    project(id: $projectId) {
+
+        allModules(projectPassword: $projectPassword) {
+            ... on EmbedModule {
+                id
+                caption
+            }
+
+            ... on MediaCollectionModule {
+                id
+                fullBleed
+                caption: captionPlain
+                components {
+                    id
+                    imageSizes {
+                        size_disp {
+                            url
+                        }
+                        size_disp_still {
+                            url
+                        }
+                    }
+                }
+            }
+            ... on TextModule {
+                id
+                fullBleed
+            }
+
+        }
+    }
+}
