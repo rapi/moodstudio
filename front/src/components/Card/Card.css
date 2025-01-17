@@ -1,0 +1,25 @@
+.card-title{
+  position: absolute;
+  bottom:50px;
+  left:50px;
+  font-size: 1.5rem;
+  color:white;
+}
+.card:hover{
+  background-:rgba(255,255,255,1);  }
+
+.card{
+
+  position: relative;
+  width: 50%;
+  height: 720px;
+  border: 0;
+  border-radius: 0;
+  background-position: center;
+  background-size: cover;
+  font-family: monospace;
+
+}
+.card-container{
+  display: flex;
+}
