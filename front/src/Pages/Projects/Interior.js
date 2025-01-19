@@ -8,10 +8,9 @@ export default function Interior() {
   return (
     <>
       <main id="home">
-        <Header minified/>
-          <Overview filter="Interior" />
+        <Header minified />
+        <Overview filter="Interior" />
         <Footer />
-
       </main>
     </>
   );

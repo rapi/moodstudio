@@ -8,10 +8,9 @@ export default function Landscape() {
   return (
     <>
       <main id="home">
-        <Header minified/>
-          <Overview filter="Landscape" />
+        <Header minified />
+        <Overview filter="Landscape" />
         <Footer />
-
       </main>
     </>
   );

@@ -1,15 +1,15 @@
-.card-title{
+.card-title {
   position: absolute;
-  bottom:50px;
-  left:50px;
+  bottom: 50px;
+  left: 50px;
   font-size: 1.5rem;
-  color:white;
+  color: white;
 }
-.card:hover{
-  background-:rgba(255,255,255,1);  }
+.card:hover {
+  background-: rgba(255, 255, 255, 1);
+}
 
-.card{
-
+.card {
   position: relative;
   width: 50%;
   height: 720px;
@@ -18,8 +18,7 @@
   background-position: center;
   background-size: cover;
   font-family: monospace;
-
 }
-.card-container{
+.card-container {
   display: flex;
 }

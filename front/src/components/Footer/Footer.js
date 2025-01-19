@@ -8,11 +8,9 @@ export default function Footer() {
       <Container>
         <div className="content">
           <div className="logo">
-            <img src='/logo.svg' alt="mood logo" height={100}/>
+            <img src="/logo.svg" alt="mood logo" height={100} />
           </div>
-          <p className="footer-text">
-             All Rights Reserved 2025.
-          </p>
+          <p className="footer-text">All Rights Reserved 2025.</p>
         </div>
       </Container>
     </footer>

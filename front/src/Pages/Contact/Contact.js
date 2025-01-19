@@ -8,11 +8,10 @@ export default function Contact() {
   return (
     <>
       <main id="home">
-        <Header minified/>
-          <Community />
+        <Header minified />
+        <Community />
 
         <Footer />
-
       </main>
     </>
   );
