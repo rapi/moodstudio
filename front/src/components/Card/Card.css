@@ -10,8 +10,12 @@
 }
 
 .card {
+  flex: 1 1 50%; /* Flexible width, min 50% */
+  max-width: 50%; /* Ensures items don't exceed 50% */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  text-align: center; /* Center content */
+  padding: 10px; /* Optional padding */
   position: relative;
-  width: 50%;
   height: 720px;
   border: 0;
   border-radius: 0;
@@ -19,6 +23,16 @@
   background-size: cover;
   font-family: monospace;
 }
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%; /* Flexible width, min 50% */
+
+  }
+}
 .card-container {
   display: flex;
+  flex-wrap: wrap;
+
 }

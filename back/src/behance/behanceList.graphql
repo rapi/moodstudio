@@ -45,6 +45,9 @@ query GetProfileProjects($username: String, $after: String, $projectPassword: St
                     size_808 {
                         url
                     }
+                    size_original_webp {
+                        url
+                    }
                 }
 
                 fields {

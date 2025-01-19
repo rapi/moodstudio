@@ -32,18 +32,18 @@ export default function Menu({ minified }) {
 
       <div
         id="menu"
-        className={(isSticky ? "sticky" : "") + (minified ? "minified" : "")}
+        className={(isSticky ? "sticky" : "") + (minified ? " minified" : "")}
       >
         {isMenuShown && (
           <>
+            <Link to="/">
+              <button className="btn btn-mint">Home</button>
+            </Link>
             <Link to="/landscape">
               <button className="btn btn-mint">Landscape portfolio</button>
             </Link>
             <Link to="/interior">
               <button className="btn btn-mint">Interior portfolio</button>
-            </Link>
-            <Link to="/projects">
-              <button className="btn btn-mint">Price calculator</button>
             </Link>
             <Link to="/contact">
               <button className="btn btn-mint">Contacts</button>

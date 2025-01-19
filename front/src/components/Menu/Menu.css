@@ -12,6 +12,8 @@
 }
 
 #menu.minified {
+  text-align: left;
+  top:auto;
   background-color: #fff;
   position: fixed;
   left: 0px;
@@ -43,6 +45,8 @@
   width: 240px;
 }
 .toggleBtn {
+    z-index: 1;
+
   left: 0;
   bottom: 0;
   position: fixed;
