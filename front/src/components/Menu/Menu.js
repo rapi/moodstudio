@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Menu.css";
 import { Link } from "react-router-dom";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import useIsMobile from "../Mobile/isMobile";
 export default function Menu({ minified }) {
   const [isSticky, setIsSticky] = useState(false);
   const [isToggle, setIsToggle] = useState(false);
-
+  const isMobile = useIsMobile();
+  const isMinified = minified || isMobile;
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight - 50) {
@@ -18,10 +20,10 @@ export default function Menu({ minified }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const isMenuShown = isToggle || !minified;
+  const isMenuShown = isToggle || !isMinified;
   return (
     <>
-      {minified && (
+      {isMinified && (
         <div
           className={"toggleBtn " + (isToggle ? "active" : "")}
           onClick={() => setIsToggle(!isToggle)}
@@ -32,7 +34,7 @@ export default function Menu({ minified }) {
 
       <div
         id="menu"
-        className={(isSticky ? "sticky" : "") + (minified ? " minified" : "")}
+        className={(isSticky ? "sticky" : "") + (isMinified ? " minified" : "")}
       >
         {isMenuShown && (
           <>
