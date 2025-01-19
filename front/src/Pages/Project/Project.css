@@ -1,0 +1,33 @@
+.project-container>div{
+  flex: 1 1 50%; /* Flexible width, min 50% */
+}
+
+.project-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.project-description {
+  max-width: 50%;
+}
+.project-images {
+  img{
+    max-height: 100%;
+    margin-left: auto;
+  }
+  div{
+    height: 100%!important;
+  }
+    height: 100vh;
+}
+.project-description{
+    padding: 100px;
+
+}
+@media (max-width: 768px) {
+  .project-container>div{
+    flex: 1 1 100%; /* Flexible width, min 50% */
+  }
+  .project-description {
+    max-width: 100%;
+  }
+}

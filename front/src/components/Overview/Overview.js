@@ -9,7 +9,6 @@ export default function Overview({ filter }) {
   useEffect(() => {
     fetch("/api/behance/projects")
       .then((e) => e.json())
-      .then((e) => e.filter((e) => e.covers.size_808?.url))
       .then((e) => {
         setProjects(
           filter
@@ -30,7 +29,7 @@ export default function Overview({ filter }) {
           <Card
             image={project.covers.size_original_webp.url}
             title={project.name}
-            link={project.url}
+            link={`/project/${project.slug}`}
           ></Card>
         ))}
       </CardContainer>

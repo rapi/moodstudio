@@ -42,10 +42,10 @@ export default function Menu({ minified }) {
               <button className="btn btn-mint">Home</button>
             </Link>
             <Link to="/landscape">
-              <button className="btn btn-mint">Landscape portfolio</button>
+              <button className="btn btn-mint">Landscape</button>
             </Link>
             <Link to="/interior">
-              <button className="btn btn-mint">Interior portfolio</button>
+              <button className="btn btn-mint">Interior</button>
             </Link>
             <Link to="/contact">
               <button className="btn btn-mint">Contacts</button>

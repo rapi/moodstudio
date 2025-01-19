@@ -12,7 +12,11 @@ query GetProfileProjects($username: String, $after: String, $projectPassword: St
                         id
                         caption
                     }
-
+                    ... on TextModule {
+                        id
+                        text
+                        alignment
+                    }
                     ... on MediaCollectionModule {
                         id
                         fullBleed
@@ -20,6 +24,10 @@ query GetProfileProjects($username: String, $after: String, $projectPassword: St
                         components {
                             id
                             imageSizes {
+                                allAvailable {
+                                    url
+                                    height
+                                }
                                 size_disp {
                                     url
                                 }

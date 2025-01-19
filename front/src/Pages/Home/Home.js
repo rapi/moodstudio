@@ -19,7 +19,7 @@ export default function Home() {
           <Card
             image="https://mir-s3-cdn-cf.behance.net/project_modules/fs/691ef5191421451.65cb657b0c0be.jpg"
             title="Interior"
-            link="/inerior"
+            link="/interior"
           />
         </CardContainer>
 
