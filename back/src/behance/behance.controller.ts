@@ -1,16 +1,25 @@
-import {Controller, Get, Param} from '@nestjs/common';
-import {BehanceService, Project, ProjectDetails} from "./behance.service";
+import { Controller, Get, Inject } from '@nestjs/common';
+import { BehanceService, Project } from './behance.service';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager'; // Import from 'cache-manager'
 
 @Controller('behance')
 export class BehanceController {
-    constructor(private readonly behanceService: BehanceService) {}
+  constructor(
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
+    private readonly behanceService: BehanceService,
+  ) {}
 
-    @Get("projects")
-    getProjects(): Promise<Project[]> {
-        return this.behanceService.getProjects();
+  @Get('projects')
+  async getProjects(): Promise<Project[]> {
+    const cached = await this.cacheManager.get<Project[]>('projects');
+    if (cached) {
+      return cached;
     }
-    @Get("project/:id")
-    getProject(@Param('id') id: string):Promise<ProjectDetails> {
-        return this.behanceService.getProject(id);
-    }
+    console.log('set cache');
+    const response = await this.behanceService.getProjects();
+    await this.cacheManager.set('projects', response, 60 * 60 * 1000); // ttl as a number
+
+    return response;
+  }
 }
