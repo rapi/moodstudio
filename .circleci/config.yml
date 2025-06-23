@@ -48,7 +48,7 @@ jobs:
             ssh -o StrictHostKeyChecking=no root@$DEPLOY_HOST \
              "docker pull $DOCKERHUB_USERNAME/moodstudio:latest && \
               if [ \$(docker ps -aq -f name=moodstudio) ]; then docker stop moodstudio && docker rm moodstudio; fi && \
-              docker run  -v /root/cache:/usr/src/app/cache -d --name moodstudio $DOCKERHUB_USERNAME/moodstudio:latest && \
+              docker run -p 80:8080 -v /root/cache:/usr/src/app/cache -d --name moodstudio $DOCKERHUB_USERNAME/moodstudio:latest && \
               echo 'y' | docker image prune"
 
 
