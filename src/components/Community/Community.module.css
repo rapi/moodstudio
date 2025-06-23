@@ -1,69 +1,78 @@
 /* Community.module.css */
+
 .community {
-  padding: 10rem 0;
+  padding: 8rem 0;
+  background-color: #f9f9f9;
 }
 
 .content {
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  place-items: center;
-  gap: 10rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
 }
 
 .gridSection {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gridSection.reverse {
+  flex-direction: row-reverse;
 }
 
 .gridSection img {
-  width: 100%;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
 }
 
 .text {
-  width: 100%;
-  text-align: left;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-  font-size: clamp(2.8rem, 5vw, 70px);
-  text-transform: capitalize;
-  padding-bottom: 5rem;
-  text-align: left;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #222;
 }
 
 .desc {
-  font-size: clamp(0.5rem, 4vw, 28px);
-  padding-bottom: 1rem;
+  margin: 1rem 0 2rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #555;
 }
 
 .btns {
-  display: flex;
+  margin-top: auto;
 }
 
-@media only screen and (max-width: 1200px) {
-  .gridSection img {
-    width: 100%;
-  }
-  .text {
-    height: unset;
-  }
+.btnFollow {
+  background-color: #0069d9;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-@media only screen and (max-width: 900px) {
-  .community {
-    padding: 5rem 0.5rem;
+.btnFollow:hover {
+  background-color: #0053ba;
+}
+
+@media (max-width: 768px) {
+  .gridSection {
+    flex-direction: column;
   }
-  .content {
-    width: 100%;
-    gap: 0;
-    margin: 4rem 0;
-  }
-  .title {
-    padding-bottom: 1rem;
-  }
+  .gridSection img,
   .text {
     width: 100%;
-    padding: 3rem 1rem;
   }
 }
