@@ -1,0 +1,206 @@
+/* [project]/src/Pages/Contact/Contact.css [client] (css) */
+#home {
+  overflow: hidden;
+}
+
+.btns .btn:not(:first-child) {
+  margin: 0 .5rem;
+}
+
+.btn {
+  color: #fff;
+  border-radius: 2rem;
+  padding: .5rem 1.2rem;
+  font-size: 14px;
+}
+
+.btn-follow {
+  color: #000;
+  border: 1px solid #f04225;
+}
+
+.btn-join {
+  background: #f04225;
+  border: none;
+}
+
+.customContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media only screen and (width <= 900px) {
+  .customContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+/* [project]/src/components/Footer/Footer.css [client] (css) */
+#footer {
+  padding: 1rem 0;
+}
+
+#footer .content {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  display: flex;
+}
+
+#footer .content .footer-text {
+  opacity: .5;
+}
+
+@media only screen and (width <= 768px) {
+  #footer .content {
+    flex-direction: column;
+  }
+
+  #footer .content .footer-text {
+    padding: 2rem 0 0;
+  }
+}
+
+
+/* [project]/src/components/Community/Community.css [client] (css) */
+#community {
+  padding: 10rem 0;
+}
+
+#community .content .grid-section {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  place-items: center;
+  gap: 10rem 5rem;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+}
+
+#community .content .grid-section .text {
+  text-align: left;
+  width: 100%;
+}
+
+#community .content .grid-section img {
+  width: 100%;
+}
+
+#community .content .grid-section .title {
+  text-transform: capitalize;
+  text-align: left;
+  padding-bottom: 5rem;
+  font-size: clamp(2.8rem, 5vw, 70px);
+}
+
+#community .content .grid-section .desc {
+  padding-bottom: 1rem;
+  font-size: clamp(.5rem, 4vw, 28px);
+}
+
+#community .content .btns {
+  display: flex;
+}
+
+@media only screen and (width <= 1200px) {
+  #community .content .grid-section img {
+    width: 100%;
+  }
+
+  #community .content .grid-section .text {
+    height: unset;
+  }
+}
+
+@media only screen and (width <= 900px) {
+  #community {
+    padding: 5rem .5rem;
+  }
+
+  #community .content .grid-section {
+    gap: 0;
+    width: 100%;
+    margin: 4rem 0;
+  }
+
+  #community .content .grid-section .title {
+    padding-bottom: 1rem;
+  }
+
+  #community .content .grid-section .text {
+    width: 100%;
+    padding: 3rem 1rem;
+  }
+}
+
+
+/* [project]/src/components/Menu/Menu.css [client] (css) */
+#menu.sticky {
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+
+#menu.sticky button, #menu.sticky a {
+  color: #000;
+}
+
+#menu.minified {
+  text-align: left;
+  background-color: #fff;
+  flex-direction: column;
+  width: 240px;
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 50px;
+  left: 0;
+  transform: none;
+}
+
+#menu.minified button, #menu.minified a {
+  color: #000;
+}
+
+#menu {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#menu button, #menu a {
+  color: #fff;
+  background-color: #0000;
+  border: none;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+.toggleBtn.active {
+  width: 240px;
+}
+
+.toggleBtn {
+  z-index: 1;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.toggleBtn span {
+  margin-left: 10px;
+}
+
+
+/*# sourceMappingURL=src_d43ddf3c._.css.map*/

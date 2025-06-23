@@ -1,0 +1,68 @@
+/* [project]/src/components/Menu/Menu.css [client] (css) */
+#menu.sticky {
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+
+#menu.sticky button, #menu.sticky a {
+  color: #000;
+}
+
+#menu.minified {
+  text-align: left;
+  background-color: #fff;
+  flex-direction: column;
+  width: 240px;
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 50px;
+  left: 0;
+  transform: none;
+}
+
+#menu.minified button, #menu.minified a {
+  color: #000;
+}
+
+#menu {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#menu button, #menu a {
+  color: #fff;
+  background-color: #0000;
+  border: none;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+.toggleBtn.active {
+  width: 240px;
+}
+
+.toggleBtn {
+  z-index: 1;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.toggleBtn span {
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=src_components_Menu_Menu_css_2bef753f._.single.css.map*/

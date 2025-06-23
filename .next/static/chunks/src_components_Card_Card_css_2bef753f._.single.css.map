@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/Card/Card.css"],"sourcesContent":[".card-title {\n  position: absolute;\n  bottom: 50px;\n  left: 50px;\n  font-size: 1.5rem;\n  color: white;\n}\n.card:hover {\n  background-: rgba(255, 255, 255, 1);\n}\n\n.card {\n  flex: 1 1 50%; /* Flexible width, min 50% */\n  max-width: 50%; /* Ensures items don't exceed 50% */\n  box-sizing: border-box; /* Ensures padding is included in width */\n  text-align: center; /* Center content */\n  padding: 10px; /* Optional padding */\n  position: relative;\n  height: 720px;\n  border: 0;\n  border-radius: 0;\n  background-position: center;\n  background-size: cover;\n  font-family: monospace;\n}\n@media (max-width: 768px) {\n  .card {\n    width: 100%;\n    max-width: 100%;\n    flex: 1 1 100%; /* Flexible width, min 50% */\n\n  }\n}\n.card-container {\n  display: flex;\n  flex-wrap: wrap;\n\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;AAOA;;;;AAIA;;;;;;;;;;;;;;;AAcA;EACE;;;;;;;AAOF"}}]
+}

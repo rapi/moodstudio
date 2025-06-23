@@ -1,0 +1,10 @@
+#header {
+  height: 100vh;
+  position: relative;
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.281), rgba(255, 255, 255, 0)),
+    url("/default.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

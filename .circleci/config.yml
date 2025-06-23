@@ -1,0 +1,61 @@
+version: 2.1
+
+executors:
+  docker-executor:
+    docker:
+      - image: cimg/base:stable  # or any docker-with-cli image
+    working_directory: ~/repo
+    resource_class: small
+
+jobs:
+  build-and-deploy:
+
+    executor: docker-executor
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:HBhLVm7ReNk7hM1cwhw0Xix2J/VflDHRkprnQ+AU2+U"
+      # enable docker commands
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+
+      # build & tag image
+      - run:
+          name: Build Docker image
+          command: |
+            docker build -t "${DOCKERHUB_USERNAME}/${IMAGE_NAME}:latest" .
+
+      # log in to Docker Hub
+      - run:
+          name: Login to Docker Hub
+          command: |
+            echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
+
+      # push to Docker Hub
+      - run:
+          name: Push Docker image
+          command: |
+            docker push "${DOCKERHUB_USERNAME}/${IMAGE_NAME}:latest"
+
+      # deploy: SSH into server, pull new image, recreate container
+      - run:
+          name: Deploy to server
+          command: |
+            ssh -o StrictHostKeyChecking=no root@$DEPLOY_HOST \
+             "docker pull $DOCKERHUB_USERNAME/moodstudio:latest && \
+              if [ \$(docker ps -aq -f name=moodstudio) ]; then docker stop moodstudio && docker rm moodstudio; fi && \
+              docker run  -v /root/cache:/usr/src/app/cache -d --name moodstudio $DOCKERHUB_USERNAME/moodstudio:latest && \
+              echo 'y' | docker image prune"
+
+
+workflows:
+  version: 2
+  deploy_workflow:
+    jobs:
+      - build-and-deploy:
+          filters:
+            branches:
+              only: main

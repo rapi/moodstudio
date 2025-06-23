@@ -1,0 +1,93 @@
+/* [project]/src/Pages/Project/Project.css [client] (css) */
+.project-container > div {
+  flex: 50%;
+}
+
+.project-container {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.project-description {
+  max-width: 50%;
+}
+
+.project-images {
+  max-width: 50%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.project-images > div > div {
+  max-height: 100vh;
+}
+
+.project-description {
+  padding: 100px;
+}
+
+.tag-container {
+  flex-wrap: wrap;
+  margin-top: 20px;
+  display: flex;
+}
+
+.tag-container .tag {
+  border: 1px solid silver;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px 20px;
+}
+
+.projects-container {
+  margin-top: 100px;
+  display: flex;
+}
+
+.projects-container .project-overview:hover > div {
+  display: block;
+}
+
+.projects-container .project-overview {
+  background-size: cover;
+  width: 300px;
+  height: 146px;
+  margin: 9px;
+  position: relative;
+}
+
+.projects-container .project-overview > div {
+  color: #fff;
+  background-color: #00000080;
+  width: 100%;
+  padding: 5px 8px 10px;
+  font-size: 14px;
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
+
+@media (width <= 768px) {
+  .project-container > div {
+    flex: 100%;
+  }
+
+  .project-description {
+    max-width: 100%;
+  }
+
+  .project-description .project-overview > div {
+    display: block;
+  }
+
+  .projects-container {
+    flex-wrap: wrap;
+  }
+
+  .project-images {
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=src_Pages_Project_Project_css_2bef753f._.single.css.map*/

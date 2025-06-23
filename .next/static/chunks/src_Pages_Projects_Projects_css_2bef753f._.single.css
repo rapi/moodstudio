@@ -1,0 +1,39 @@
+/* [project]/src/Pages/Projects/Projects.css [client] (css) */
+#home {
+  overflow: hidden;
+}
+
+.btns .btn:not(:first-child) {
+  margin: 0 .5rem;
+}
+
+.btn {
+  color: #fff;
+  border-radius: 2rem;
+  padding: .5rem 1.2rem;
+  font-size: 14px;
+}
+
+.btn-follow {
+  color: #000;
+  border: 1px solid #f04225;
+}
+
+.btn-join {
+  background: #f04225;
+  border: none;
+}
+
+.customContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media only screen and (width <= 900px) {
+  .customContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=src_Pages_Projects_Projects_css_2bef753f._.single.css.map*/

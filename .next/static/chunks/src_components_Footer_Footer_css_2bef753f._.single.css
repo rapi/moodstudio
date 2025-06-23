@@ -1,0 +1,27 @@
+/* [project]/src/components/Footer/Footer.css [client] (css) */
+#footer {
+  padding: 1rem 0;
+}
+
+#footer .content {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  display: flex;
+}
+
+#footer .content .footer-text {
+  opacity: .5;
+}
+
+@media only screen and (width <= 768px) {
+  #footer .content {
+    flex-direction: column;
+  }
+
+  #footer .content .footer-text {
+    padding: 2rem 0 0;
+  }
+}
+
+/*# sourceMappingURL=src_components_Footer_Footer_css_2bef753f._.single.css.map*/

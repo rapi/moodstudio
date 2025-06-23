@@ -1,0 +1,11 @@
+{
+  "/": "pages/index.js",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/api/behance/projects": "pages/api/behance/projects.js",
+  "/contact": "pages/contact.js",
+  "/interior": "pages/interior.js",
+  "/landscape": "pages/landscape.js",
+  "/project/[id]": "pages/project/[id].js"
+}

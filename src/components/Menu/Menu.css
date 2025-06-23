@@ -1,0 +1,64 @@
+#menu.sticky {
+  position: fixed;
+  top: 0px;
+  bottom: auto; /* Reset bottom to auto */
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+  button,
+  a {
+    color: black;
+  }
+}
+
+#menu.minified {
+  text-align: left;
+  top:auto;
+  background-color: #fff;
+  position: fixed;
+  left: 0px;
+  transform: none;
+  bottom: 50px;
+  display: flex;
+  width: 240px;
+  flex-direction: column;
+  button,
+  a {
+    color: black;
+  }
+}
+#menu {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 50%; /* Start at 50% of the container width */
+  transform: translateX(
+    -50%
+  ); /* Center horizontally by shifting half its width */
+  button,
+  a {
+    font-family: monospace;
+    color: white;
+    font-size: 1.3rem;
+    background-color: transparent;
+    border: none;
+  }
+}
+.toggleBtn.active {
+  width: 240px;
+}
+.toggleBtn {
+    z-index: 1;
+
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  font-size: 1.3rem;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+  span {
+    margin-left: 10px;
+  }
+}
