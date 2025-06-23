@@ -32,7 +32,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/graphql ./graphql
 
 # Copy next.config.js (and any other config you need at runtime)
-COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/next.config.ts ./
 
 EXPOSE 3000
 CMD ["yarn", "start"]
