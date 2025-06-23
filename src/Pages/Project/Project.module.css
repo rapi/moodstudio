@@ -1,0 +1,77 @@
+/* Project.module.css */
+.projectContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.projectContainer > div {
+  flex: 1 1 50%;
+}
+
+.projectImages {
+  max-width: 50%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.projectImages > div > div {
+  max-height: 100vh;
+}
+
+.projectDescription {
+  max-width: 50%;
+  padding: 100px;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.tag {
+  margin: 5px;
+  border: 1px solid silver;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.projectsContainer {
+  margin-top: 100px;
+  display: flex;
+}
+.projectOverview {
+  position: relative;
+  width: 300px;
+  height: 146px;
+  margin: 9px;
+  background-size: cover;
+}
+.projectOverview > div {
+  display: none;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  padding: 5px 8px 10px;
+  width: 100%;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.projectOverview:hover > div {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .projectContainer > div {
+    flex: 1 1 100%;
+  }
+  .projectImages {
+    max-width: 100%;
+  }
+  .projectDescription {
+    max-width: 100%;
+  }
+  .projectDescription .projectOverview > div {
+    display: block;
+  }
+  .projectsContainer {
+    flex-wrap: wrap;
+  }
+}

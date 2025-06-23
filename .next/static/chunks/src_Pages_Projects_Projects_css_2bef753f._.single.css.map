@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/Pages/Projects/Projects.css"],"sourcesContent":["#home {\n  overflow: hidden;\n}\n\n.btns .btn:not(:first-child) {\n  margin: 0 0.5rem;\n}\n\n.btn {\n  padding: 0.5rem 1.2rem;\n  border-radius: 2rem;\n  color: white;\n  font-size: 14px;\n}\n\n.btn-follow {\n  color: black;\n  border: 1px solid #f04225;\n}\n.btn-join {\n  border: none;\n  background: #f04225;\n}\n\n.customContainer {\n  width: 80%;\n  margin: 0 auto;\n}\n\n@media only screen and (max-width: 900px) {\n  .customContainer {\n    width: 100%;\n    margin: 0 auto;\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;AAIA;;;;AAIA;;;;;;;AAOA;;;;;AAIA;;;;;AAKA;;;;;AAKA;EACE"}}]
-}

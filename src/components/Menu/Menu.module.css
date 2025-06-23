@@ -1,0 +1,70 @@
+/* Menu.module.css */
+.menu {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu button,
+.menu a {
+  font-family: monospace;
+  color: white;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  margin: auto 1rem;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+}
+
+.sticky button,
+.sticky a {
+  color: black;
+}
+
+.minified {
+  text-align: left;
+  top: auto;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  transform: none;
+  bottom: 50px;
+  display: flex;
+  width: 240px;
+  flex-direction: column;
+}
+
+.minified button,
+.minified a {
+  color: black;
+}
+
+.toggleBtn {
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  font-size: 1.3rem;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.active {
+  width: 240px;
+}
+
+.toggleBtn span {
+  margin-left: 10px;
+}

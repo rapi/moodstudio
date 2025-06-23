@@ -1,0 +1,24 @@
+/* Footer.module.css */
+.footer {
+  padding: 1rem 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.footerText {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .footerText {
+    padding: 2rem 0 0 0;
+  }
+}

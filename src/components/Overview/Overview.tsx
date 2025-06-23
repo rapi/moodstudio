@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState } from "react";
-import "./Overview.css";
 import CardContainer from "../Card/CardContainer";
 import Card from "../Card/Card";
 import { Loading } from "../Loading/Loading";
