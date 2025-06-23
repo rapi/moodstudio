@@ -1,12 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    experimental: {
+        esmExternals: 'loose',
+    },
     transpilePackages: [
         'antd',
+        '@ant-design/cssinjs',
         '@ant-design',
+        '@rc-component/util',
+        '@rc-component/icon',
         'rc-util',
-        // …any others
+        'rc-picker',
     ],
 };
 
