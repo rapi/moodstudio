@@ -39,5 +39,4 @@ COPY --from=builder /app/package.json ./package.json
 # Expose port 3000
 EXPOSE 3000
 
-# Start the Next.js application on port 3000
-CMD ["yarn", "start"]
+CMD ["yarn", "start", "--hostname", "0.0.0.0"]
