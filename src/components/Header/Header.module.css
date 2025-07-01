@@ -16,3 +16,7 @@
 /* Placeholder for the “minified” variant; add rules here if needed */
 .headerMinified {
 }
+.logo{
+  width: 250px;
+  padding: 30px;
+}

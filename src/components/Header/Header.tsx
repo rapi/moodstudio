@@ -23,8 +23,8 @@ const Header: FC<HeaderProps> = ({ minified }) => {
                 <div className="content">
                     <Nav className="nav">
                         <Link href="/" className="nav-link">
-                            <div className="logo">
-                                <img width={100} src="/logo.svg" alt="ROGUE SHARKS" />
+                            <div className={styles.logo}>
+                                <img width={250} src="/logo_white.png" alt="ROGUE SHARKS" />
                             </div>
                         </Link>
                     </Nav>

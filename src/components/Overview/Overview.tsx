@@ -7,6 +7,10 @@ interface Field {
     label: string;
 }
 
+interface Tag {
+    title: string;
+}
+
 interface Covers {
     size_original_webp: {
         url: string;
@@ -15,6 +19,7 @@ interface Covers {
 
 interface Project {
     fields: Field[];
+    tags: Tag[];
     covers: Covers;
     name: string;
     slug: string;
@@ -26,16 +31,19 @@ interface OverviewProps {
 
 const Overview: FC<OverviewProps> = ({ filter }) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    console.log(filter)
     const [projects, setProjects] = useState<Project[]>([]);
-
     useEffect(() => {
         const fetchProjects = async () => {
             try {
+
                 const res = await fetch("/api/behance/projects");
                 const data: Project[] = await res.json();
+                console.log(filter,data)
+
                 const filtered = filter
                     ? data.filter(project =>
-                        project.fields.some(field => field.label.includes(filter))
+                        project.tags.some(field => field.title.toUpperCase().includes(filter.toUpperCase()))
                     )
                     : data;
                 setProjects(filtered);

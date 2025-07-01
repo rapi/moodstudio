@@ -51,11 +51,17 @@ const Menu: FC<MenuProps> = ({ minified }) => {
                 <Link href="/">
                   <button className="btn btn-mint">Home</button>
                 </Link>
-                <Link href="/landscape">
-                  <button className="btn btn-mint">Landscape</button>
+                <Link href="/public-landscape">
+                  <button className="btn btn-mint">Landscape Residential</button>
                 </Link>
-                <Link href="/interior">
-                  <button className="btn btn-mint">Interior</button>
+                <Link href="/public-landscape">
+                  <button className="btn btn-mint">Landscape Public</button>
+                </Link>
+                <Link href="/commertial-interior">
+                  <button className="btn btn-mint">Interior Commertial</button>
+                </Link>
+                <Link href="/residential-interior">
+                  <button className="btn btn-mint">Interior Residential</button>
                 </Link>
                 <Link href="/contact">
                   <button className="btn btn-mint">Contacts</button>

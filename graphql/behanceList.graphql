@@ -41,6 +41,23 @@ query GetProfileProjects($username: String, $after: String, $projectPassword: St
                         id
                         fullBleed
                     }
+                    ... on ImageModule {
+                        id,
+                        altText
+                        tags
+                        imageSizes {
+                            allAvailable {
+                                url
+                                height
+                            }
+                            size_disp {
+                                url
+                            }
+                            size_disp_still {
+                                url
+                            }
+                        }
+                    }
 
                 }
 

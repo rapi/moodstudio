@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { Container } from "react-bootstrap";
+import {BehanceOutlined, FacebookOutlined, InstagramOutlined} from "@ant-design/icons";
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,9 @@ const Footer: React.FC = () => {
               <img src="/logo.svg" alt="mood logo" height={100} />
             </div>
             <p className={styles.footerText}>
-              All Rights Reserved {new Date().getFullYear()}.
+                <a target="_blank" href="https://www.behance.net/mood_design"><BehanceOutlined  /></a>
+               <a target="_blank" href="https://www.facebook.com/mood.garden.md"> <FacebookOutlined  /></a>
+               <a target="_blank" href="https://www.instagram.com/mood.dsgn.studio/"> <InstagramOutlined  /></a>
             </p>
           </div>
         </Container>

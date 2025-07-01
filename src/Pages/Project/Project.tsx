@@ -11,6 +11,10 @@ import { useParams, useRouter } from 'next/navigation'
 
 type Module={
     text?: string
+    tags?: string[]
+    imageSizes?: {
+        allAvailable: { url: string; height: number }[]
+    }
     components?: {
         imageSizes: {
             allAvailable: { url: string; height: number }[]
@@ -41,11 +45,15 @@ const Project: React.FC = () => {
             .then((res) => res.json() as Promise<ProjectType[]>)
             .then((data) => {
                 const found = data.find((p) => p.slug === slug)
-                if (!found) { router.push('/'); return }
-                setProject(found)
-                setProjects(data.filter((p) => p.slug !== slug).slice(0, 4))
+                if (found) {
+                    setProject(found)
+                    setProjects(data.filter((p) => p.slug !== slug).slice(0, 4))
+                }
+
             })
-            .catch(() => router.push('/'))
+            .catch(() => {
+                // router.push('/')
+            })
             .finally(() => setLoading(false))
     }, [slug, router])
 
@@ -62,7 +70,15 @@ const Project: React.FC = () => {
                 return match?.url ?? c.imageSizes.allAvailable.slice(-1)[0].url
             })
         ) ?? []
-    const tagTitles = project.tags?.map((t) => t.title) ?? []
+    const isometric = project.allModules
+        ?.filter((m) => m.tags?.includes('isometric'))
+        .flatMap((m) => {
+            const match = typeof window !== 'undefined'
+                ? m.imageSizes?.allAvailable[m.imageSizes?.allAvailable.length - 1]
+                : null
+            return match?.url ?? m.imageSizes?.allAvailable.slice(-1)[0].url
+        }) ?? []
+
 
     return (
         <ConfigProvider
@@ -84,13 +100,28 @@ const Project: React.FC = () => {
                         {textList.map((mod, i) => (
                             <div key={i} dangerouslySetInnerHTML={{ __html: mod.text || '' }} />
                         ))}
-                        <div className={styles.tagContainer}>
-                            {tagTitles.map((tag, i) => (
-                                <div key={i} className={styles.tag}>
-                                    {tag}
-                                </div>
-                            ))}
-                        </div>
+                        {<div>
+                            <Carousel arrows autoplay={true} autoplaySpeed={4000} >
+                                {isometric.map((url) => (
+                                    <div key={url} className={styles.isometricContainer}>
+                                        <img width={700} alt="MOOD studio project" src={url}
+                                             style={{
+                                                 maxWidth: '100%', // so it never overflows its container
+                                                 height: 'auto',
+                                             }}
+                                        />
+                                    </div>
+                                ))}
+                            </Carousel>
+                        </div>}
+                        {/*<div className={styles.tagContainer}>*/}
+                        {/*    {tagTitles.map((tag, i) => (*/}
+                        {/*        <div key={i} className={styles.tag}>*/}
+                        {/*            {tag}*/}
+                        {/*        </div>*/}
+                        {/*    ))}*/}
+                        {/*</div>*/}
+
                         <div className={styles.projectsContainer}>
                             {projects.map((p) => (
                                 <Link
