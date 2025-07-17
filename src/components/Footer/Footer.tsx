@@ -9,8 +9,8 @@ const Footer: React.FC = () => {
       <footer className={styles.footer}>
         <Container>
           <div className={styles.content}>
-            <div className="logo">
-              <img src="/logo.svg" alt="mood logo" height={100} />
+            <div className={styles.logo}>
+              <img src="/logo_black.png" alt="mood logo" width={200} />
             </div>
             <p className={styles.footerText}>
                 <a target="_blank" href="https://www.behance.net/mood_design"><BehanceOutlined  /></a>

@@ -37,6 +37,7 @@ const Project: React.FC = () => {
     const [isLoading, setLoading] = useState(true)
     const [project, setProject] = useState<ProjectType | null>(null)
     const [projects, setProjects] = useState<ProjectType[]>([])
+    const [isExpanded, setIsExpanded] = useState(false)
 
     useEffect(() => { setLoading(true) }, [slug])
 
@@ -70,13 +71,13 @@ const Project: React.FC = () => {
                 return match?.url ?? c.imageSizes.allAvailable.slice(-1)[0].url
             })
         ) ?? []
-    const isometric = project.allModules
+    const isometricModules=project.allModules
         ?.filter((m) => m.tags?.includes('isometric'))
-        .flatMap((m) => {
-            const match = typeof window !== 'undefined'
-                ? m.imageSizes?.allAvailable[m.imageSizes?.allAvailable.length - 1]
-                : null
-            return match?.url ?? m.imageSizes?.allAvailable.slice(-1)[0].url
+
+    const isometric =isometricModules
+        ?.flatMap((m) => {
+            const match = m.imageSizes?.allAvailable.sort((a,b) => a.height - b.height)
+            return match?.[5]?.url
         }) ?? []
 
 
@@ -96,6 +97,8 @@ const Project: React.FC = () => {
                             ))}
                         </Carousel>
                     </div>
+                    <div className={styles.projectRight}>
+
                     <div className={styles.projectDescription}>
                         {textList.map((mod, i) => (
                             <div key={i} dangerouslySetInnerHTML={{ __html: mod.text || '' }} />
@@ -122,19 +125,21 @@ const Project: React.FC = () => {
                         {/*    ))}*/}
                         {/*</div>*/}
 
-                        <div className={styles.projectsContainer}>
-                            {projects.map((p) => (
-                                <Link
-                                    key={p.slug}
-                                    href={`/project/${p.slug}`}
-                                    className={styles.projectOverview}
-                                    style={{ backgroundImage: `url(${p.covers.size_original_webp.url})` }}
-                                >
-                                    <div>{p.name}</div>
-                                </Link>
-                            ))}
-                        </div>
+
                     </div>
+                    <div className={styles.projectsContainer}>
+                        {projects.map((p) => (
+                            <Link
+                                key={p.slug}
+                                href={`/project/${p.slug}`}
+                                className={styles.projectOverview}
+                                style={{ backgroundImage: `url(${p.covers.size_original_webp.url})` }}
+                            >
+                                <div>{p.name}</div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
                 </div>
                 <Footer />
             </main>

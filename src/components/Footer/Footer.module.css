@@ -20,7 +20,12 @@
   font-size: 2rem;
 
 }
-
+.logo *{
+  fill:black
+}
+.logo{
+  margin:auto;
+}
 @media only screen and (max-width: 768px) {
   .content {
     flex-direction: column;
