@@ -37,7 +37,6 @@ const Project: React.FC = () => {
     const [isLoading, setLoading] = useState(true)
     const [project, setProject] = useState<ProjectType | null>(null)
     const [projects, setProjects] = useState<ProjectType[]>([])
-    const [isExpanded, setIsExpanded] = useState(false)
 
     useEffect(() => { setLoading(true) }, [slug])
 

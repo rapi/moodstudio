@@ -6,8 +6,7 @@ const { Title, Paragraph } = Typography
 
 const ContactForm: React.FC = () => {
     const [form] = Form.useForm()
-
-    const handleSubmit = async (values: any) => {
+    const handleSubmit = async (values: { name: string; contact: string; square?: string; file?: { file: File } }) => {
         try {
             const formData = new FormData()
             formData.append('name', values.name)
