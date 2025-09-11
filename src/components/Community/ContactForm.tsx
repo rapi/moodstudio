@@ -17,7 +17,7 @@ const phoneRegex =
 const emailRegex =
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-const phoneOrEmailValidator = async (_: any, value?: string) => {
+const phoneOrEmailValidator = async (_: unknown, value?: string) => {
     if (!value) return Promise.reject(new Error('Please enter a phone or email'))
     const v = value.trim()
     if (emailRegex.test(v) || phoneRegex.test(v)) return Promise.resolve()
@@ -25,8 +25,10 @@ const phoneOrEmailValidator = async (_: any, value?: string) => {
 }
 
 // Normalize Upload event → fileList
-const normFile = (e: any): UploadFile[] => {
+const normFile = (e: unknown): UploadFile[] => {
     if (Array.isArray(e)) return e
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     return e?.fileList ?? []
 }
 
