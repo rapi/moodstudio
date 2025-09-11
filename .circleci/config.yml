@@ -23,6 +23,12 @@ jobs:
           docker_layer_caching: true
 
 
+      - run:
+          name: Create Telegram .env
+          command: |
+            mkdir -p front
+            echo "TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}" >  .env
+            echo "TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}"   >> .env
       # build & tag image
       - run:
           name: Build Docker image
