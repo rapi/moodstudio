@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import formidable, { File } from 'formidable'
+import formidable from 'formidable'
 import TelegramBot from 'node-telegram-bot-api';
 import fs from "node:fs";
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!
@@ -20,14 +20,16 @@ export default async function handler(
     const bot = new TelegramBot(TELEGRAM_TOKEN, {polling: false});
     console.log("test")
     try {
-        const recivedForm = formidable({
+        const receivedForm = formidable({
             multiples: true,            // поддержка нескольких файлов
             keepExtensions: true,       // сохранять расширения
             // uploadDir: '/tmp',       // при необходимости — путь сохранения
             // maxFileSize: 50 * 1024 * 1024, // лимит, например 50MB
         })
 
-        const [fields,files] = await recivedForm.parse(req)
+        const [fields,files] = await receivedForm.parse(req)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const values=Object.values(fields).map((field,i) =>`<b>${Object.keys(fields)[i]}</b> ${field[0]}`).join("\n")
         const form = new FormData();
         form.append('parse_mode', 'html');
