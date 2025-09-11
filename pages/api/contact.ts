@@ -38,9 +38,7 @@ export default async function handler(
         if(files.file){
             const file = files.file[0]; // это PersistentFile
             const filePath = file.filepath; // путь к временному файлу
-            bot.sendDocument(CHAT_ID, fs.createReadStream(filePath),{
-                filename: values,
-            });
+            bot.sendDocument(CHAT_ID, fs.createReadStream(filePath));
         }
 
         await fetch(TELEGRAM_URL, {
