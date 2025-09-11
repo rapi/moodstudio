@@ -57,7 +57,7 @@ const Menu: FC<MenuProps> = ({ minified }) => {
                 <Link href="/public-landscape">
                   <button className="btn btn-mint">Landscape Public</button>
                 </Link>
-                <Link href="/commertial-interior">
+                <Link href="/commercial-interior">
                   <button className="btn btn-mint">Interior Commertial</button>
                 </Link>
                 <Link href="/residential-interior">

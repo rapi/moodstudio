@@ -61,6 +61,7 @@ const Project: React.FC = () => {
 
     const textList = project.allModules?.filter((m) => m.text) as Module[]
     const images = project.allModules
+        ?.map((m) => m.imageSizes?{components:[{imageSizes:m.imageSizes}],...m}:m)
         ?.filter((m) => m.components)
         .flatMap((m) =>
             m.components!.flatMap((c) => {
@@ -78,8 +79,9 @@ const Project: React.FC = () => {
             const match = m.imageSizes?.allAvailable.sort((a,b) => a.height - b.height)
             return match?.[5]?.url
         }) ?? []
-
-
+console.log( project.allModules
+        ?.filter((m) => m.components))
+console.log(images)
     return (
         <ConfigProvider
             theme={{ components: { Carousel: { arrowSize: 50 } } }}
@@ -102,6 +104,7 @@ const Project: React.FC = () => {
                         {textList.map((mod, i) => (
                             <div key={i} dangerouslySetInnerHTML={{ __html: mod.text || '' }} />
                         ))}
+
                         {<div>
                             <Carousel arrows autoplay={true} autoplaySpeed={4000} >
                                 {isometric.map((url) => (

@@ -83,13 +83,18 @@
   .projectImages {
     max-width: 100%;
   }
+
   .projectDescription {
     max-width: 100%;
   }
   .projectDescription .projectOverview > div {
     display: block;
   }
-  .projectsContainer {
-    flex-wrap: wrap;
+  .projectRight {
+      max-width: 100%;
+    /*flex-wrap: wrap;*/
+  }
+  .projectOverview{
+    height: 100px
   }
 }

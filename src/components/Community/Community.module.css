@@ -80,4 +80,11 @@
   .text {
     width: 100%;
   }
+  .community {
+    padding: 0;
+  }
+  .text {
+    font-size: 1.8rem;
+    padding: 20px 18px;
+  }
 }
