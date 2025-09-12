@@ -28,7 +28,10 @@
 }
 @media only screen and (max-width: 768px) {
   .content {
-    flex-direction: column;
+    flex-direction: row-reverse;
+  }
+  .logo{
+    display: none;
   }
   .footerText {
     padding: 2rem 0 0 0;
