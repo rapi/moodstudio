@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ minified }) => {
                     <Nav className="nav">
                         <Link href="/" className="nav-link">
                             <div className={styles.logo}>
-                                <img width={250} src="/logo_white.png" alt="ROGUE SHARKS" />
+                                <img width={250} src="/logo_white.png" alt="Mood Studio" />
                             </div>
                         </Link>
                     </Nav>
