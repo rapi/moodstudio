@@ -16,6 +16,11 @@
   color:black!important;
   font-size: 1rem;
 }
+.projectImages button:before {
+  border:1px solid white!important;
+  rotate: -90deg!important;
+}
+
 
 .projectImages img {
   width: 100%;
@@ -104,22 +109,30 @@
 @media (max-width: 768px) {
   .projectContainer > div {
     flex: 1 1 100%;
+
+  }
+  .projectImages >div >div{
+    height: auto;
+
   }
   .projectImages {
     max-width: 100%;
   }
 
   .projectDescription {
-    max-width: 100%;
+    width: 100%;
   }
   .projectDescription .projectOverview > div {
     display: block;
   }
-  .projectRight {
+  .projectLeft {
       max-width: 100%;
     /*flex-wrap: wrap;*/
   }
   .projectOverview{
     height: 100px
+  }
+  .imageContainer {
+    height: auto;
   }
 }

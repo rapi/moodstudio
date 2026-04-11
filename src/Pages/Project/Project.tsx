@@ -96,7 +96,7 @@ const Project: React.FC = () => {
 
                         {
                             <div >
-                                <Carousel arrows autoplay={true} autoplaySpeed={4000}  dots={false} infinite={true} >
+                                <Carousel arrows autoplay={true} autoplaySpeed={4000}  dots={false} infinite={true} draggable>
                                     {isometric.map((url) => (
                                         <div key={url} className={styles.isometricContainer}>
                                             <img width={700} alt="MOOD studio project" src={url}
@@ -136,7 +136,7 @@ const Project: React.FC = () => {
                     </div>
                 </div>
                     <div className={styles.projectImages}>
-                        <Carousel dots={false} infinite={true}  arrows>
+                        <Carousel dots={false} draggable     infinite={true}  arrows>
                             {images.map((url) => (
                               <div className={styles.imageContainer} key={url}>
                                   <img alt="MOOD studio project" src={url} />
