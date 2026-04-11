@@ -79,9 +79,6 @@ const Project: React.FC = () => {
             const match = m.imageSizes?.allAvailable.sort((a,b) => a.height - b.height)
             return match?.[5]?.url
         }) ?? []
-console.log( project.allModules
-        ?.filter((m) => m.components))
-console.log(images)
     return (
         <ConfigProvider
             theme={{ components: { Carousel: { arrowSize: 50 } } }}
@@ -89,16 +86,8 @@ console.log(images)
             <main>
                 <Menu minified />
                 <div className={styles.projectContainer}>
-                    <div className={styles.projectImages}>
-                        <Carousel arrows>
-                            {images.map((url) => (
-                                <div key={url}>
-                                    <img alt="MOOD studio project" src={url} />
-                                </div>
-                            ))}
-                        </Carousel>
-                    </div>
-                    <div className={styles.projectRight}>
+
+                    <div className={styles.projectLeft}>
 
                     <div className={styles.projectDescription}>
                         {textList.map((mod, i) => (
@@ -142,6 +131,15 @@ console.log(images)
                         ))}
                     </div>
                 </div>
+                    <div className={styles.projectImages}>
+                        <Carousel arrows>
+                            {images.map((url) => (
+                              <div className={styles.imageContainer} key={url}>
+                                  <img alt="MOOD studio project" src={url} />
+                              </div>
+                            ))}
+                        </Carousel>
+                    </div>
                 </div>
                 <Footer />
             </main>

@@ -12,6 +12,10 @@
   max-height: 100vh;
   overflow: hidden;
 }
+.projectImages button {
+  color:black!important;
+  font-size: 1rem;
+}
 
 .projectImages img {
   width: 100%;
@@ -19,16 +23,27 @@
   display: block;
   object-fit: contain; /* or 'cover' if you want cropping */
 }
+.imageContainer {
+  display: flex !important;
+  height: 100vh;
+}
+.projectImages > div > div > div > div>img{
+  margin: auto;
+}
 .projectImages > div > div {
   max-height: 100vh;
+  height: 100vh;
+  width:100%;
 }
-.projectRight {
-  max-width: 62%;
+
+.projectLeft {
+  max-width: 40%;
   min-height: 100%;
 }
 .projectDescription {
   padding: 10px 50px;
-  min-height: 80%;
+  height: 70%;
+  overflow: hidden;
 }
 
 .tagContainer {
@@ -44,8 +59,6 @@
 }
 
 .projectsContainer {
-  position: sticky;
-  bottom: 0;
   background: white;
   padding: 1rem;
   display: flex;
