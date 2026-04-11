@@ -77,7 +77,7 @@ const Project: React.FC = () => {
     const isometric =isometricModules
         ?.flatMap((m) => {
             const match = m.imageSizes?.allAvailable.sort((a,b) => a.height - b.height)
-            return match?.[5]?.url
+            return match?.[10]?.url
         }) ?? []
     return (
         <ConfigProvider
@@ -94,20 +94,22 @@ const Project: React.FC = () => {
                             <div key={i} dangerouslySetInnerHTML={{ __html: mod.text || '' }} />
                         ))}
 
-                        {<div>
-                            <Carousel arrows autoplay={true} autoplaySpeed={4000} >
-                                {isometric.map((url) => (
-                                    <div key={url} className={styles.isometricContainer}>
-                                        <img width={700} alt="MOOD studio project" src={url}
-                                             style={{
-                                                 maxWidth: '100%', // so it never overflows its container
-                                                 height: 'auto',
-                                             }}
-                                        />
-                                    </div>
-                                ))}
-                            </Carousel>
-                        </div>}
+                        {
+                            <div >
+                                <Carousel arrows autoplay={true} autoplaySpeed={4000}  dots={false} infinite={true} >
+                                    {isometric.map((url) => (
+                                        <div key={url} className={styles.isometricContainer}>
+                                            <img width={700} alt="MOOD studio project" src={url}
+                                                 style={{
+                                                     maxWidth: '100%', // so it never overflows its container
+                                                     height: 'auto',
+                                                 }}
+                                            />
+                                        </div>
+                                    ))}
+                                </Carousel>
+                        </div>
+                            }
                         {/*<div className={styles.tagContainer}>*/}
                         {/*    {tagTitles.map((tag, i) => (*/}
                         {/*        <div key={i} className={styles.tag}>*/}
@@ -119,20 +121,22 @@ const Project: React.FC = () => {
 
                     </div>
                     <div className={styles.projectsContainer}>
-                        {projects.map((p) => (
-                            <Link
-                                key={p.slug}
-                                href={`/project/${p.slug}`}
-                                className={styles.projectOverview}
-                                style={{ backgroundImage: `url(${p.covers.size_original_webp.url})` }}
-                            >
-                                <div>{p.name}</div>
-                            </Link>
-                        ))}
+                        <div>
+                            {projects.map((p) => (
+                                <Link
+                                    key={p.slug}
+                                    href={`/project/${p.slug}`}
+                                    className={styles.projectOverview}
+                                    style={{ backgroundImage: `url(${p.covers.size_original_webp.url})` }}
+                                >
+                                    <div>{p.name}</div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
                     <div className={styles.projectImages}>
-                        <Carousel arrows>
+                        <Carousel dots={false} infinite={true}  arrows>
                             {images.map((url) => (
                               <div className={styles.imageContainer} key={url}>
                                   <img alt="MOOD studio project" src={url} />

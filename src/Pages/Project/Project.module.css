@@ -45,7 +45,11 @@
   height: 70%;
   overflow: hidden;
 }
-
+.additionalProjects{
+  display: flex;
+  width: 100%;
+  height: 30%;
+}
 .tagContainer {
   display: flex;
   flex-wrap: wrap;
@@ -62,6 +66,14 @@
   background: white;
   padding: 1rem;
   display: flex;
+  height: 30vh;
+}
+.projectsContainer> div {
+  background: white;
+  padding: 1rem;
+  display: flex;
+  margin: auto;
+  width: 100%;
 }
 .isometricContainer {
   display: flex!important;
@@ -109,8 +121,5 @@
   }
   .projectOverview{
     height: 100px
-  }
-  .projectsContainer {
-    padding: 0.1rem;
   }
 }
