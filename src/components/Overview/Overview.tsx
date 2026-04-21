@@ -31,16 +31,13 @@ interface OverviewProps {
 
 const Overview: FC<OverviewProps> = ({ filter }) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    console.log(filter)
     const [projects, setProjects] = useState<Project[]>([]);
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-
+                setIsLoading(true);
                 const res = await fetch("/api/behance/projects");
                 const data: Project[] = await res.json();
-                console.log(filter,data)
-
                 const filtered = filter
                     ? data.filter(project =>
                         project.tags.some(field => field.title.toUpperCase().includes(filter.toUpperCase()))

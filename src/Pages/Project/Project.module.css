@@ -11,60 +11,59 @@
   width: 100%;
   max-height: 100vh;
   overflow: hidden;
-}
-.projectImages button {
-  color:black!important;
-  font-size: 1rem;
-}
-.projectImages button:before {
-  border:1px solid white!important;
-  rotate: -90deg!important;
+  position: relative;
 }
 
-
-.projectImages img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain; /* or 'cover' if you want cropping */
+/* Specific Ant Design Carousel arrow targeting */
+.projectImages :global(.slick-prev),
+.projectImages :global(.slick-next) {
+  z-index: 20;
+  width: 50px;
+  height: 50px;
+  color: black !important;
+  fill: black !important;
 }
+
+.projectImages :global(.slick-prev):after,
+.projectImages :global(.slick-next):after {
+  /* Ensure the arrow itself is black */
+  border-color: #000 !important;
+  /* Use multiple drop-shadows to create a 1px white outline around the border-drawn arrow */
+  filter: 
+    drop-shadow(1px 0px 0px #fff)
+    drop-shadow(-1px 0px 0px #fff)
+    drop-shadow(0px 1px 0px #fff)
+    drop-shadow(0px -1px 0px #fff);
+}
+
+.projectImages :global(.slick-prev):before,
+.projectImages :global(.slick-next):before {
+  display: none !important;
+}
+
+.projectImages :global(.slick-prev) {
+  left: 25px;
+}
+
+.projectImages :global(.slick-next) {
+  right: 25px;
+}
+
 .imageContainer {
   display: flex !important;
   height: 100vh;
-}
-.projectImages > div > div > div > div>img{
-  margin: auto;
-}
-.projectImages > div > div {
-  max-height: 100vh;
-  height: 100vh;
-  width:100%;
+  width: 100%;
 }
 
 .projectLeft {
   max-width: 40%;
   min-height: 100%;
 }
+
 .projectDescription {
   padding: 10px 50px;
   height: 70%;
   overflow: hidden;
-}
-.additionalProjects{
-  display: flex;
-  width: 100%;
-  height: 30%;
-}
-.tagContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-.tag {
-  margin: 5px;
-  border: 1px solid silver;
-  padding: 5px 20px;
-  border-radius: 20px;
 }
 
 .projectsContainer {
@@ -73,25 +72,23 @@
   display: flex;
   height: 30vh;
 }
-.projectsContainer> div {
+
+.projectsContainer > div {
   background: white;
   padding: 1rem;
   display: flex;
   margin: auto;
   width: 100%;
 }
-.isometricContainer {
-  display: flex!important;
-  justify-content: center;
-  align-items: center; /* for vertical centering if the slide has height */
- }
+
 .projectOverview {
   position: relative;
   width: 300px;
   height: 146px;
   margin: 9px;
-  background-size: cover;
+  overflow: hidden;
 }
+
 .projectOverview > div {
   display: none;
   color: white;
@@ -101,38 +98,46 @@
   width: 100%;
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
+
 .projectOverview:hover > div {
   display: block;
 }
 
+.isometricContainer {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
+  .projectContainer {
+    flex-direction: column-reverse;
+  }
   .projectContainer > div {
     flex: 1 1 100%;
-
   }
-  .projectImages >div >div{
+  .projectImages > div > div {
     height: auto;
-
   }
   .projectImages {
     max-width: 100%;
+    max-height: none;
   }
-
   .projectDescription {
     width: 100%;
-  }
-  .projectDescription .projectOverview > div {
-    display: block;
+    padding: 20px;
   }
   .projectLeft {
-      max-width: 100%;
-    /*flex-wrap: wrap;*/
+    max-width: 100%;
   }
-  .projectOverview{
-    height: 100px
+  .projectOverview {
+    height: 100px;
+    width: 100%;
   }
   .imageContainer {
     height: auto;
+    min-height: 50vh;
   }
 }
