@@ -1,12 +1,12 @@
 // Project.tsx
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import styles from './Project.module.css'
 import Footer from '@/components/Footer/Footer'
 import Menu from '@/components/Menu/Menu'
 import { Loading } from '@/components/Loading/Loading'
 import { Carousel, ConfigProvider } from 'antd'
 import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 
 
 type Module={
@@ -30,17 +30,16 @@ type ProjectType={
     allModules?: Module[]
     tags?: { title: string }[]
 }
+
 const Project: React.FC = () => {
     const params = useParams()
     const slug = params?.id
-    const router = useRouter()
     const [isLoading, setLoading] = useState(true)
     const [project, setProject] = useState<ProjectType | null>(null)
     const [projects, setProjects] = useState<ProjectType[]>([])
 
-    useEffect(() => { setLoading(true) }, [slug])
-
     useEffect(() => {
+        setLoading(true)
         fetch('/api/behance/projects')
             .then((res) => res.json() as Promise<ProjectType[]>)
             .then((data) => {
@@ -49,36 +48,41 @@ const Project: React.FC = () => {
                     setProject(found)
                     setProjects(data.filter((p) => p.slug !== slug).slice(0, 4))
                 }
-
             })
-            .catch(() => {
-                // router.push('/')
-            })
+            .catch(console.error)
             .finally(() => setLoading(false))
-    }, [slug, router])
+    }, [slug])
+
+    const textList = useMemo(() => project?.allModules?.filter((m) => m.text) ?? [], [project])
+    
+    const images = useMemo(() => {
+        if (!project?.allModules) return []
+        return project.allModules
+            .map((m) => m.imageSizes ? { components: [{ imageSizes: m.imageSizes }], ...m } : m)
+            .filter((m) => m.components)
+            .flatMap((m) =>
+                m.components!.map((c) => {
+                    const available = c.imageSizes.allAvailable;
+                    const match = available.find((img) => img.height > 1200) || available[available.length - 1];
+                    return match.url;
+                })
+            )
+    }, [project])
+
+    const isometric = useMemo(() => {
+        if (!project?.allModules) return []
+        return project.allModules
+            .filter((m) => m.tags?.includes('isometric'))
+            .flatMap((m) => {
+                const available = m.imageSizes?.allAvailable;
+                if (!available) return []
+                const sorted = [...available].sort((a, b) => a.height - b.height)
+                return sorted[Math.min(10, sorted.length - 1)].url
+            })
+    }, [project])
 
     if (isLoading || !project) return <Loading />
 
-    const textList = project.allModules?.filter((m) => m.text) as Module[]
-    const images = project.allModules
-        ?.map((m) => m.imageSizes?{components:[{imageSizes:m.imageSizes}],...m}:m)
-        ?.filter((m) => m.components)
-        .flatMap((m) =>
-            m.components!.flatMap((c) => {
-                const match = typeof window !== 'undefined'
-                    ? c.imageSizes.allAvailable.find((img) => img.height > window.innerHeight)
-                    : null
-                return match?.url ?? c.imageSizes.allAvailable.slice(-1)[0].url
-            })
-        ) ?? []
-    const isometricModules=project.allModules
-        ?.filter((m) => m.tags?.includes('isometric'))
-
-    const isometric =isometricModules
-        ?.flatMap((m) => {
-            const match = m.imageSizes?.allAvailable.sort((a,b) => a.height - b.height)
-            return match?.[10]?.url
-        }) ?? []
     return (
         <ConfigProvider
             theme={{ components: { Carousel: { arrowSize: 50 } } }}
@@ -94,31 +98,21 @@ const Project: React.FC = () => {
                             <div key={i} dangerouslySetInnerHTML={{ __html: mod.text || '' }} />
                         ))}
 
-                        {
+                        {isometric.length > 0 && (
                             <div >
                                 <Carousel arrows autoplay={true} autoplaySpeed={4000}  dots={false} infinite={true} draggable>
                                     {isometric.map((url) => (
                                         <div key={url} className={styles.isometricContainer}>
-                                            <img width={700} alt="MOOD studio project" src={url}
-                                                 style={{
-                                                     maxWidth: '100%', // so it never overflows its container
-                                                     height: 'auto',
-                                                 }}
+                                            <img 
+                                                alt="MOOD studio project" 
+                                                src={url}
+                                                style={{ maxWidth: '100%', maxHeight: '500px', objectFit: 'contain' }}
                                             />
                                         </div>
                                     ))}
                                 </Carousel>
-                        </div>
-                            }
-                        {/*<div className={styles.tagContainer}>*/}
-                        {/*    {tagTitles.map((tag, i) => (*/}
-                        {/*        <div key={i} className={styles.tag}>*/}
-                        {/*            {tag}*/}
-                        {/*        </div>*/}
-                        {/*    ))}*/}
-                        {/*</div>*/}
-
-
+                            </div>
+                        )}
                     </div>
                     <div className={styles.projectsContainer}>
                         <div>
@@ -136,10 +130,14 @@ const Project: React.FC = () => {
                     </div>
                 </div>
                     <div className={styles.projectImages}>
-                        <Carousel dots={false} draggable     infinite={true}  arrows>
+                        <Carousel dots={false} draggable infinite={true} arrows>
                             {images.map((url) => (
                               <div className={styles.imageContainer} key={url}>
-                                  <img alt="MOOD studio project" src={url} />
+                                  <img 
+                                      alt="MOOD studio project" 
+                                      src={url} 
+                                      style={{ maxWidth: '100%', maxHeight: '100vh', objectFit: 'contain' }}
+                                  />
                               </div>
                             ))}
                         </Carousel>
